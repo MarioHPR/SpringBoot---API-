@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TipoContatoRepository extends CrudRepository<TipoContato,Integer> {
+    TipoContato findByNome(String nome);
 }
