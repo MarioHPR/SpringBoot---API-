@@ -1,12 +1,10 @@
 package com.ifsul.tcc.gerenciadorExames.api.Repository;
 
 import com.ifsul.tcc.gerenciadorExames.api.Entity.TipoContato;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 
 import java.util.ArrayList;
 import java.util.List;
