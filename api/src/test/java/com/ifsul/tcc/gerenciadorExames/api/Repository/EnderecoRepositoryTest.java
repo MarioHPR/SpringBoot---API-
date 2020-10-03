@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EnderecoRepositoryTest {
 
     @Autowired
@@ -21,7 +22,7 @@ public class EnderecoRepositoryTest {
     @Autowired
     private CidadeRepository cidadeRepository;
 
-    @BeforeEach
+    @BeforeAll
     public void init(){
         Cidade cidade = new Cidade();
         cidade.setNome("São Jerônimo");
@@ -44,7 +45,7 @@ public class EnderecoRepositoryTest {
 
     @Test
     public void buscarIdInexistenteRetornarFalse(){
-        assertFalse(enderecoRepository.findById(12).isPresent());
+        assertFalse(enderecoRepository.findById(2).isPresent());
     }
 
 }
