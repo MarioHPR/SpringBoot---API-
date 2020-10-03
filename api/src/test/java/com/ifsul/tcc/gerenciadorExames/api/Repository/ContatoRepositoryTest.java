@@ -2,17 +2,14 @@ package com.ifsul.tcc.gerenciadorExames.api.Repository;
 
 import com.ifsul.tcc.gerenciadorExames.api.Entity.Contato;
 import com.ifsul.tcc.gerenciadorExames.api.Entity.TipoContato;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ContatoRepositoryTest {
 
     @Autowired
@@ -33,8 +30,9 @@ public class ContatoRepositoryTest {
     }
 
     @Test
+    @Order(1)
     public void buscarContatoPorId() {
-        assertTrue(contatoRepository.findById(3).isPresent());
+        assertTrue(contatoRepository.findById(1).isPresent());
     }
 
     @Test
@@ -80,5 +78,4 @@ public class ContatoRepositoryTest {
         TipoContato newTipo = tipoContatoRepository.save(tipoContato);
         assertEquals(0, contatoRepository.findAllByTipoContato(newTipo).size());
     }
-
 }
