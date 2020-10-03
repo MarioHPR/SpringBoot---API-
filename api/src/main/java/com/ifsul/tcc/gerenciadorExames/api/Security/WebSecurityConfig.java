@@ -30,6 +30,8 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/**").permitAll()// tirar depois
+                .antMatchers(HttpMethod.GET,"/api/**").permitAll()// tirar depois
+                .antMatchers(HttpMethod.PUT,"/api/**").permitAll()// tirar depois
                 .anyRequest().authenticated().and()
 
                 // quando estiver se logando
