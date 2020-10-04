@@ -5,8 +5,6 @@ import com.ifsul.tcc.gerenciadorExames.api.Entity.*;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
