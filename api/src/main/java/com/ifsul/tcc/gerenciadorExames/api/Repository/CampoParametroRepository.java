@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CampoParametroRepository extends CrudRepository<CampoParametro, Integer> {
+    CampoParametro findByCampo(String campo);
 }
