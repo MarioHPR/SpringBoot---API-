@@ -15,7 +15,7 @@ public class TipoContato extends EntityAbstract<Integer> {
     private String nome;
 
     @OneToMany(mappedBy = "tipoContato")
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Contato> contatos;
 
     @Override
