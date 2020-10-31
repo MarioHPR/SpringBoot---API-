@@ -18,7 +18,7 @@ public class Contato extends EntityAbstract<Integer> {
     private String valor;
 
     @ManyToOne
-    //@JsonBackReference
+    @JsonBackReference
     @JoinColumn(name = "ID_TIPO_CONTATO")
     private TipoContato tipoContato;
 

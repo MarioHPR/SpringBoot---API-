@@ -1,11 +1,14 @@
 package com.ifsul.tcc.gerenciadorExames.api.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties("contatos")
 public class TipoContato extends EntityAbstract<Integer> {
     @Id
     @SequenceGenerator(name = "TIPO_CONTATO_SEQ", sequenceName = "TIPO_CONTATO_SEQ")
@@ -14,8 +17,8 @@ public class TipoContato extends EntityAbstract<Integer> {
     @Column(unique = true)
     private String nome;
 
-    @OneToMany(mappedBy = "tipoContato")
-    //@JsonManagedReference
+    @OneToMany
+    @JsonManagedReference
     private List<Contato> contatos;
 
     @Override
