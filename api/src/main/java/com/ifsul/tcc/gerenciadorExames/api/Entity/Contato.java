@@ -1,13 +1,11 @@
 package com.ifsul.tcc.gerenciadorExames.api.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 
 @Entity
-@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Contato.class)
+@JsonIgnoreProperties(value = {"tipoContato", "usuario"})
 public class Contato extends EntityAbstract<Integer> {
     @Id
     @SequenceGenerator(name = "CONTATO_SEQ", sequenceName = "CONTATO_SEQ")
@@ -17,14 +15,16 @@ public class Contato extends EntityAbstract<Integer> {
     @Column(nullable = false)
     private String valor;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     @JoinColumn(name = "ID_TIPO_CONTATO")
+    @JsonIgnore
     private TipoContato tipoContato;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     @JoinColumn(name = "ID_USUARIO")
+    @JsonIgnore
     private Usuario usuario;
 
 

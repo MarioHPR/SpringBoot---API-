@@ -15,7 +15,7 @@ public class TipoContato extends EntityAbstract<Integer> {
     @Column(unique = true)
     private String nome;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tipoContato")
     @JsonManagedReference
     private List<Contato> contatos;
 

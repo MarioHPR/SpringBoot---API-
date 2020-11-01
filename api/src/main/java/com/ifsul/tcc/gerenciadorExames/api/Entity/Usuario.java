@@ -2,6 +2,7 @@ package com.ifsul.tcc.gerenciadorExames.api.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -28,7 +29,7 @@ public class Usuario extends EntityAbstract<Integer> {
 
     // chaves estrangeiras
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonBackReference
     private Endereco endereco;
 

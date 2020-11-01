@@ -1,12 +1,14 @@
 package com.ifsul.tcc.gerenciadorExames.api.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties( { "exame", "consultas" } )
 public class Instituicao extends EntityAbstract<Integer> {
 
     @Id
